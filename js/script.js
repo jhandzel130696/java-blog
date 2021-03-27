@@ -2,6 +2,7 @@
 function titleClickHandler(event){
     console.log('Link was clicked!');
     console.log(event);
+    
   
     /* remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
@@ -11,6 +12,7 @@ for(let activeLink of activeLinks){
 }
   
     /* add class 'active' to the clicked link */
+    event.preventDefault();
     const clickedElement = this;
     console.log('clickedElement:', clickedElement);
     clickedElement.classList.add('active');
@@ -24,6 +26,9 @@ for(let activeArticle of activeArticles){
 }    
 
     /* get 'href' attribute from the clicked link */
+    const articleSelector = href;
+    clickedElement = element.getAttribute(href);
+    console.log(articleSelector);
   
     /* find the correct article using the selector (value of 'href' attribute) */
   
