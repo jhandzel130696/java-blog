@@ -104,7 +104,7 @@ function generateTags(){
   for (let article of articles) {
   /* find tags wrapper */
  const TagsWrapper = article.querySelectorAll(optArticleTagsSelector);
- 
+ TagsWrapper.innerHTML='';
   /* make html variable with empty string */
 let html = '';
   /* get tags from data-tags attribute */
@@ -117,7 +117,7 @@ const articleTags = article.getAttribute('data-tags');
 for (let tag of articleTagsArray){
   
   /* generate HTML of the link */
-const HTMLlink = '<li><a href="#' + tag + '"><span>'+ tag +'</span></a></li>';
+const HTMLlink = '<li><a href="#tag-' + tag + '"><span>'+ tag +'</span></a></li>';
 
 
   /* add generated code to html variable */
