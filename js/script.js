@@ -25,7 +25,7 @@ function titleClickHandler(event){
 
   /* get 'href' attribute from the clicked link */
   const articleSelector = clickedElement.getAttribute('href');
-  
+  console.log(articleSelector);
 
   
   /* find the correct article using the selector (value of 'href' attribute) */
@@ -117,8 +117,8 @@ function generateTags(){
     for (let tag of articleTagsArray){
   
       /* generate HTML of the link */
-      const HTMLlink = '<li><a href="#' + tag + '"><span>'+ tag +'</span></a></li> &nbsp';
-
+      const HTMLlink = '<li><a href="#tag-' + tag + '"><span>'+ tag +'</span></a></li> &nbsp';
+      
 
       /* add generated code to html variable */
       html=html + HTMLlink;
@@ -140,19 +140,20 @@ function tagClickHandler(event){
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
 const clickedElement = this;
-console.log('clickedElement',clickedElement);
+
   /* make a new constant "href" and read the attribute "href" of the clicked element */
+const href = clickedElement.getAttribute('href');
 
   /* make a new constant "tag" and extract tag from the "href" constant */
-
+const tag = href.replace('#tag-','');
   /* find all tag links with class active */
-
+const TagsLinks = tag.querySelectorAll('a.active[href^="#tag-"]');
   /* START LOOP: for each active tag link */
-
+for (let TagLink of TagsLinks){
     /* remove class active */
-
+TagLink.classList.remove('active');
   /* END LOOP: for each active tag link */
-
+}
   /* find all tag links with "href" attribute equal to the "href" constant */
 
   /* START LOOP: for each found tag link */
