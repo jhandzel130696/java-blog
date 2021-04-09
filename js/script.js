@@ -185,16 +185,17 @@ function addClickListenersToTags(){
 addClickListenersToTags();
 
 function generateAuthors(){
-  
-  /*find article*/
+  const optArticleSelector = '.post';
+  /*find articles*/
+const findAllArticles = document.querySelectorAll(optArticleSelector);
 
   /*create a loop for every article*/
 
-  /*find tags wrapper author-name and put innerHTML='' */
+  /*find  wrapper author-name and put innerHTML='' */
 
   /* make html variable with empty string */
   
-  /* get tags from data-authors attribute */
+  /* get author-name from data-authors attribute */
   
   /* generate HTML of the link */
 
