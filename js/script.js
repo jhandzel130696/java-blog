@@ -183,3 +183,25 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
+
+function generateAuthors(){
+  
+  /*find article*/
+
+  /*create a loop for every article*/
+
+  /*find tags wrapper author-name and put innerHTML='' */
+
+  /* make html variable with empty string */
+  
+  /* get tags from data-authors attribute */
+  
+  /* generate HTML of the link */
+
+  /* add generated code to html variable */
+
+  /* insert HTML of all the links into the tags wrapper */
+
+  /* END LOOP: for every article: */
+
+}
