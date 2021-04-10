@@ -194,7 +194,7 @@ console.log(Articles);
   /*create a loop for every article*/
 for (let Articlelink of Articles){
   /*find  wrapper author-name and put innerHTML='' */
-const Wrapper = document.querySelector(optArticleWrapper);
+const Wrapper = Articlelink.querySelector(optArticleWrapper);
 Wrapper.innerHTML='';
   /* make html variable with empty string */
   let html ='';
