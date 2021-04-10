@@ -186,23 +186,33 @@ addClickListenersToTags();
 
 function generateAuthors(){
   const optArticleSelector = '.post';
+  const optArticleWrapper = '.post-author';
   /*find articles*/
-const findAllArticles = document.querySelectorAll(optArticleSelector);
+const Articles = document.querySelectorAll(optArticleSelector);
+console.log(Articles);
 
   /*create a loop for every article*/
-
+for (let Articlelink of Articles){
   /*find  wrapper author-name and put innerHTML='' */
-
+const Wrapper = document.querySelector(optArticleWrapper);
+Wrapper.innerHTML='';
   /* make html variable with empty string */
-  
+  let html ='';
   /* get author-name from data-authors attribute */
+  const getAuthorName = Articlelink.getAttribute('data-author');
+  console.log(getAuthorName);
   
   /* generate HTML of the link */
-
+  const linkHTML = '<li><a href="#' + getAuthorName + '"><span>' + getAuthorName + '</span></a></li>';
+  console.log(linkHTML);
+  
   /* add generated code to html variable */
-
+  html=html + linkHTML;
+  
   /* insert HTML of all the links into the tags wrapper */
-
+Wrapper.innerHTML=html;
   /* END LOOP: for every article: */
 
 }
+}
+ generateAuthors();
