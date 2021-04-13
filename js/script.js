@@ -154,9 +154,11 @@ function generateTags(){
 
    /*New START LOOP:for each tag in allTags*/
    for(let tag in allTags){
+     const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
+     console.log(HTMLlink);
 
     /*new generate code of a link and add it to allTagsHTML*/
-   allTagsHTML +=tag + '(' + allTags[tag] +')';
+   allTagsHTML+= HTMLlink;
    /*NEW end loop: for each tag in allTags*/ 
   }
   /*NEW add html from allTagsHTML to tagList*/
