@@ -91,13 +91,24 @@ function generateTitleLinks(customSelector = ''){
   
 
 generateTitleLinks();
+function calculateTagsParams(tags){
+  const params = {max:0, min:99999};
+ for(let tag in tags){
+   console.log(tag + 'is used'+tags[tag] + 'times')
+ }
+
+  return params;
+
+  
+
+}
 
 function generateTags(){
   const optArticleTagsSelector='.post-tags .list';
   const optArticleSelector = '.post';
   const optTagsListSelector='.tags.list';
 
-   /* [NEW] create a new variable allTags with an empty array moduł 6.3 array zmienaimy na object */
+   /* [NEW] create a new variable allTags with an empty object moduł 6.3 array zmienaimy na object */
    let allTags = {};
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
@@ -150,6 +161,8 @@ function generateTags(){
    
 
    /*new create variable for all links HTML code*/
+   /*const tagsParams = calculateTagsParams(allTags);
+   console.log('tagsParams:', tagsParams);*/
    let allTagsHTML='';
 
    /*New START LOOP:for each tag in allTags*/
