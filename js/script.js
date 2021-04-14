@@ -41,7 +41,6 @@ function titleClickHandler(event){
 
 
 
-
 function generateTitleLinks(customSelector = ''){
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
@@ -108,11 +107,23 @@ return params;
 
 }
 
+const optCloudClassCount = 5;
+const optCloudClassPrefix = 'tag-size-'; 
+
+function calculateTagClass( count , params) {
+const normalizedCount = count - params.min;
+const normalizedMax = params.max - params.min;
+const percentage = normalizedCount / normalizedMax;
+const classNumber = Math.floor(percentage * (optCloudClassCount - 1)+1);
+
+return optCloudClassPrefix + classNumber;
+}
+
 function generateTags(){
   const optArticleTagsSelector='.post-tags .list';
   const optArticleSelector = '.post';
   const optTagsListSelector='.tags.list';
-
+ 
    /* [NEW] create a new variable allTags with an empty object moduł 6.3 array zmienaimy na object */
    let allTags = {};
   /* find all articles */
@@ -174,9 +185,14 @@ function generateTags(){
    for(let tag in allTags){
      const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
      
-
+     /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
+     const tagLinkHTML = calculateTagClass(allTags[tag],tagsParams) +
+    '<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
+    console.log(tagLinkHTML);
+     
     /*new generate code of a link and add it to allTagsHTML*/
    allTagsHTML+= HTMLlink;
+   
    /*NEW end loop: for each tag in allTags*/ 
   }
   /*NEW add html from allTagsHTML to tagList*/
