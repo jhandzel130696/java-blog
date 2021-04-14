@@ -186,12 +186,12 @@ function generateTags(){
      const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
      
      /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
-     const tagLinkHTML = calculateTagClass(allTags[tag],tagsParams) +
-    '<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
+     const tagLinkHTML = 
+    '<li><a class="' + calculateTagClass(allTags[tag],tagsParams) + '"href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
     console.log(tagLinkHTML);
      
     /*new generate code of a link and add it to allTagsHTML*/
-   allTagsHTML+= HTMLlink;
+   allTagsHTML+= tagLinkHTML;
    
    /*NEW end loop: for each tag in allTags*/ 
   }

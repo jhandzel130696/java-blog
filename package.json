@@ -12,7 +12,7 @@
     "test:html": "html-validate *.html",
     "lint": "eslint --fix --ext .js,.jsx,.",
     "test:js": "eslint js/",
-    "build": "npm-run-all build:* test",
+    "build": "npm-run-all build:* test ",
     "build:sass": "node-sass --output-style comact -o css sass",
     "build:autoprefixer": "postcss css/*.css --use autoprefixer -d css",
     "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
