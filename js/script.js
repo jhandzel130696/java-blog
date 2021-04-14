@@ -94,12 +94,17 @@ generateTitleLinks();
 function calculateTagsParams(tags){
   const params = {max:0, min:99999};
  for(let tag in tags){
-   console.log(tag + 'is used'+tags[tag] + 'times')
+   if(tags[tag]> params.max){
+     params.max = tags[tag];}
+   if(tags[tag]<params.min){
+     params.min = tags[tag];}
+   
+   
+   console.log(tag + 'is used'+tags[tag] + 'times');
+ 
  }
-
-  return params;
-
   
+return params;
 
 }
 
@@ -161,14 +166,14 @@ function generateTags(){
    
 
    /*new create variable for all links HTML code*/
-   /*const tagsParams = calculateTagsParams(allTags);
-   console.log('tagsParams:', tagsParams);*/
+   const tagsParams = calculateTagsParams(allTags);
+   console.log('tagsParams:', tagsParams);
    let allTagsHTML='';
 
    /*New START LOOP:for each tag in allTags*/
    for(let tag in allTags){
      const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
-     console.log(HTMLlink);
+     
 
     /*new generate code of a link and add it to allTagsHTML*/
    allTagsHTML+= HTMLlink;
