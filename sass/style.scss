@@ -9,6 +9,7 @@ $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
 
+
 /* Global */
 
 *, *::before, *::after {
@@ -130,3 +131,24 @@ body {
   }
 }
 
+.tag-size-1{
+  display:inline-block;
+  font-size: 15px;
+  color:purple;
+}
+.tag-size-3{
+  display:inline-block;
+  font-size: 20px;
+  color:red;
+}
+.tag-size-4{
+  display:inline-block;
+  font-size: 15px;
+  color:blue;
+}
+.tag-size-5{
+  display:inline-block;
+  font-size:20px;
+  color:rgb(0, 255, 42);
+
+}
