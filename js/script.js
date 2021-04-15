@@ -92,18 +92,18 @@ function generateTitleLinks(customSelector = ''){
 generateTitleLinks();
 function calculateTagsParams(tags){
   const params = {max:0, min:99999};
- for(let tag in tags){
-   if(tags[tag]> params.max){
-     params.max = tags[tag];}
-   if(tags[tag]<params.min){
-     params.min = tags[tag];}
+  for(let tag in tags){
+    if(tags[tag]> params.max){
+      params.max = tags[tag];}
+    if(tags[tag]<params.min){
+      params.min = tags[tag];}
    
    
-   console.log(tag + 'is used'+tags[tag] + 'times');
+    console.log(tag + 'is used'+tags[tag] + 'times');
  
- }
+  }
   
-return params;
+  return params;
 
 }
 
@@ -111,12 +111,12 @@ const optCloudClassCount = 5;
 const optCloudClassPrefix = 'tag-size-'; 
 
 function calculateTagClass( count , params) {
-const normalizedCount = count - params.min;
-const normalizedMax = params.max - params.min;
-const percentage = normalizedCount / normalizedMax;
-const classNumber = Math.floor(percentage * (optCloudClassCount - 1)+1);
+  const normalizedCount = count - params.min;
+  const normalizedMax = params.max - params.min;
+  const percentage = normalizedCount / normalizedMax;
+  const classNumber = Math.floor(percentage * (optCloudClassCount - 1)+1);
 
-return optCloudClassPrefix + classNumber;
+  return optCloudClassPrefix + classNumber;
 }
 
 function generateTags(){
@@ -124,8 +124,8 @@ function generateTags(){
   const optArticleSelector = '.post';
   const optTagsListSelector='.tags.list';
  
-   /* [NEW] create a new variable allTags with an empty object moduł 6.3 array zmienaimy na object */
-   let allTags = {};
+  /* [NEW] create a new variable allTags with an empty object moduł 6.3 array zmienaimy na object */
+  let allTags = {};
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   
@@ -154,12 +154,13 @@ function generateTags(){
       html=html + HTMLlink;
 
       /* [NEW] check if this link is NOT already in allTags  to rowniez zmieniamy*/
+      // eslint-disable-next-line no-prototype-builtins
       if(!allTags.hasOwnProperty(tag)){
         /* [NEW] add generated code to allTags array */
         allTags[tag]=1;
       } else{
 
-      allTags[tag]++;  
+        allTags[tag]++;  
       }
       
 
@@ -172,28 +173,29 @@ function generateTags(){
     
     /* END LOOP: for every article: */
   }
-   /* [NEW] find list of tags in right column */
-   const tagList = document.querySelector(optTagsListSelector);
+  /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector(optTagsListSelector);
    
 
-   /*new create variable for all links HTML code*/
-   const tagsParams = calculateTagsParams(allTags);
-   console.log('tagsParams:', tagsParams);
-   let allTagsHTML='';
+  /*new create variable for all links HTML code*/
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams:', tagsParams);
+  let allTagsHTML='';
 
-   /*New START LOOP:for each tag in allTags*/
-   for(let tag in allTags){
-     const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
+  /*New START LOOP:for each tag in allTags*/
+  for(let tag in allTags){
+    // eslint-disable-next-line no-unused-vars
+    const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
      
-     /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
-     const tagLinkHTML = 
+    /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
+    const tagLinkHTML = 
     '<li><a class="' + calculateTagClass(allTags[tag],tagsParams) + '"href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
     console.log(tagLinkHTML);
      
     /*new generate code of a link and add it to allTagsHTML*/
-   allTagsHTML+= tagLinkHTML;
+    allTagsHTML+= tagLinkHTML;
    
-   /*NEW end loop: for each tag in allTags*/ 
+    /*NEW end loop: for each tag in allTags*/ 
   }
   /*NEW add html from allTagsHTML to tagList*/
   tagList.innerHTML = allTagsHTML;
