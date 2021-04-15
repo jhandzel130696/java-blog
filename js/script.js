@@ -256,17 +256,19 @@ addClickListenersToTags();
 function generateAuthors(){
   const optArticleSelector = '.post';
   const optArticleWrapper = '.post-author';
+  // eslint-disable-next-line no-unused-vars
   const optAuthorSelector ='.list.authors';
   
   /*create variable allAuthors object*/
   let allAuthors ={};
   /*find articles*/
   const Articles = document.querySelectorAll(optArticleSelector);
-
+  /*find list authors in right column*/
+  const AuthorList = document.querySelector(optAuthorSelector);
 
   /*create a loop for every article*/
   for (let Articlelink of Articles){
-  /*find  wrapper author-name and put innerHTML='' */
+    /*find  wrapper author-name and put innerHTML='' */
     const Wrapper = Articlelink.querySelector(optArticleWrapper);
     Wrapper.innerHTML='';
     /* make html variable with empty string */
@@ -285,14 +287,25 @@ function generateAuthors(){
     /* insert HTML of all the links into the tags wrapper */
     Wrapper.innerHTML=html;
     /* END LOOP: for every article: */
+   
     /*add generated code to allAuthors*/
+    // eslint-disable-next-line no-prototype-builtins
     if(!allAuthors.hasOwnProperty(getAuthorName)){
-      allAuthors[getAuthorName] = 1;}
-      else {
-        allAuthors[getAuthorName]++;}
+      allAuthors[getAuthorName]=1;}
+    else {
+      allAuthors[getAuthorName]++;}
+     
       
-      
+    
+  
+  
+    let allAuthorsHTML = '';
+    for (let author in allAuthors){
+      allAuthorsHTML += author + '('+ allAuthors[getAuthorName] +')';
     }
+    AuthorList.innerHTML=allAuthorsHTML;
+  }
+}
   
 generateAuthors();
 
