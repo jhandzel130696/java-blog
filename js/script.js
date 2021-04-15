@@ -256,6 +256,10 @@ addClickListenersToTags();
 function generateAuthors(){
   const optArticleSelector = '.post';
   const optArticleWrapper = '.post-author';
+  const optAuthorSelector ='.list.authors';
+  
+  /*create variable allAuthors object*/
+  let allAuthors ={};
   /*find articles*/
   const Articles = document.querySelectorAll(optArticleSelector);
 
@@ -281,9 +285,15 @@ function generateAuthors(){
     /* insert HTML of all the links into the tags wrapper */
     Wrapper.innerHTML=html;
     /* END LOOP: for every article: */
-
-  }
-}
+    /*add generated code to allAuthors*/
+    if(!allAuthors.hasOwnProperty(getAuthorName)){
+      allAuthors[getAuthorName] = 1;}
+      else {
+        allAuthors[getAuthorName]++;}
+      
+      
+    }
+  
 generateAuthors();
 
 function AuthorClickHandler(event){
