@@ -190,7 +190,7 @@ function generateTags(){
     /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
     const tagLinkHTML = 
     '<li><a class="' + calculateTagClass(allTags[tag],tagsParams) + '"href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
-    console.log(tagLinkHTML);
+    
      
     /*new generate code of a link and add it to allTagsHTML*/
     allTagsHTML+= tagLinkHTML;
@@ -298,12 +298,17 @@ function generateAuthors(){
       
     
   
-  
+
+     
     let allAuthorsHTML = '';
     for (let author in allAuthors){
-      allAuthorsHTML += author + '('+ allAuthors[getAuthorName] +')';
+    
+      const newLink = '<li><a href="#author-' + author + '"><span>' + author + '('+allAuthors[getAuthorName]+') </span></a></li>';
+      allAuthorsHTML+=newLink;
+     
     }
     AuthorList.innerHTML=allAuthorsHTML;
+  
   }
 }
   
