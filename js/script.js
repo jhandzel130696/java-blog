@@ -294,25 +294,26 @@ function generateAuthors(){
       allAuthors[getAuthorName]=1;}
     else {
       allAuthors[getAuthorName]++;}
-      console.log(allAuthors);
+    console.log(allAuthors);
       
     
       
     
-  
-
-     
-    let allAuthorsHTML = '';
-    for (let author in allAuthors){
-    
-      /*allAuthorsHTML+=author + '('+ allAuthors[getAuthorName]+')';*/
-      const newLink = '<li><a href="#author-' + author + '"><span>' + author + '('+allAuthors[getAuthorName]+') </span></a></li>';
-      allAuthorsHTML+=newLink;
-     
-    }
-   
   
   }
+
+     
+  let allAuthorsHTML = '';
+  for (let author in allAuthors){
+    
+    /*allAuthorsHTML+=author + '('+ allAuthors[getAuthorName]+')';*/
+    const newLink = '<li><a href="#author-' + author + '"><span>' + author + '('+allAuthors[getAuthorName]+') </span></a></li>';
+    allAuthorsHTML+=newLink;
+     
+  
+   
+  }
+  
   AuthorList.innerHTML=allAuthorsHTML;
 }
   
