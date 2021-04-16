@@ -186,7 +186,7 @@ function generateTags(){
   for(let tag in allTags){
     // eslint-disable-next-line no-unused-vars
     const HTMLlink='<li><a href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';/*alltags[tag] dodales do srodka linka zeby cyfra wystepowala kolo wyrazu!!!*/
-     
+    
     /* nowa linia dla dodania klasy i funkcji CalculateTagClass*/
     const tagLinkHTML = 
     '<li><a class="' + calculateTagClass(allTags[tag],tagsParams) + '"href="#tag-' + tag + '"><span>'+ tag +'('+allTags[tag]+')</span></a></li>';
@@ -256,7 +256,7 @@ addClickListenersToTags();
 function generateAuthors(){
   const optArticleSelector = '.post';
   const optArticleWrapper = '.post-author';
-  // eslint-disable-next-line no-unused-vars
+  
   const optAuthorSelector ='.list.authors';
   
   /*create variable allAuthors object*/
@@ -287,14 +287,16 @@ function generateAuthors(){
     /* insert HTML of all the links into the tags wrapper */
     Wrapper.innerHTML=html;
     /* END LOOP: for every article: */
-   
+  
     /*add generated code to allAuthors*/
-    // eslint-disable-next-line no-prototype-builtins
+    
     if(!allAuthors.hasOwnProperty(getAuthorName)){
       allAuthors[getAuthorName]=1;}
     else {
       allAuthors[getAuthorName]++;}
-     
+      console.log(allAuthors);
+      
+    
       
     
   
@@ -303,13 +305,15 @@ function generateAuthors(){
     let allAuthorsHTML = '';
     for (let author in allAuthors){
     
+      /*allAuthorsHTML+=author + '('+ allAuthors[getAuthorName]+')';*/
       const newLink = '<li><a href="#author-' + author + '"><span>' + author + '('+allAuthors[getAuthorName]+') </span></a></li>';
       allAuthorsHTML+=newLink;
      
     }
-    AuthorList.innerHTML=allAuthorsHTML;
+   
   
   }
+  AuthorList.innerHTML=allAuthorsHTML;
 }
   
 generateAuthors();
