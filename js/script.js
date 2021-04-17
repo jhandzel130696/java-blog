@@ -1,4 +1,7 @@
 'use strict';
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+}
 function titleClickHandler(event){
     
     
@@ -282,7 +285,7 @@ function generateAuthors(){
   
   
     /* add generated code to html variable */
-    html=html + linkHTML;
+    html+= linkHTML;
   
     /* insert HTML of all the links into the tags wrapper */
     Wrapper.innerHTML=html;
