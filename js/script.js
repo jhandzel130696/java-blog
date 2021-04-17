@@ -290,6 +290,7 @@ function generateAuthors(){
   
     /*add generated code to allAuthors*/
     
+    // eslint-disable-next-line no-prototype-builtins
     if(!allAuthors.hasOwnProperty(getAuthorName)){
       allAuthors[getAuthorName]=1;}
     else {
@@ -304,10 +305,10 @@ function generateAuthors(){
 
      
   let allAuthorsHTML = '';
-  for (let author in allAuthors){
+  for (let getAuthorName in allAuthors){
     
     /*allAuthorsHTML+=author + '('+ allAuthors[getAuthorName]+')';*/
-    const newLink = '<li><a href="#author-' + author + '"><span>' + author + '('+allAuthors[getAuthorName]+') </span></a></li>';
+    const newLink = '<li><a href="#author-' + getAuthorName + '"><span>' + getAuthorName + '('+allAuthors[getAuthorName]+') </span></a></li>';
     allAuthorsHTML+=newLink;
      
   
