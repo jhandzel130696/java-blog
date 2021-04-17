@@ -1,7 +1,8 @@
 'use strict';
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
-}
+  
+};
 function titleClickHandler(event){
     
     
@@ -70,8 +71,11 @@ function generateTitleLinks(customSelector = ''){
      
    
     /* create HTML of the link */
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-    
+    /*const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';*/
+    /* dodaje linka po przez template*/
+    const linkHTMLData = {id:articleId, title:articleTitle};
+    const linkHTML = templates.articleLink(linkHTMLData);
+
     /* insert link into titleList */
     html=html +linkHTML;
     
@@ -150,8 +154,9 @@ function generateTags(){
     for (let tag of articleTagsArray){
   
       /* generate HTML of the link */
-      const HTMLlink = '<li><a href="#tag-' + tag + '"><span>'+ tag +'</span></a></li> ';
-      
+      /*const HTMLlink = '<li><a href="#tag-' + tag + '"><span>'+ tag +'</span></a></li> ';*/
+      const linkHTMLData = {id:tag, title:tag};
+      const HTMLlink = templates.articleLink(linkHTMLData);
 
       /* add generated code to html variable */
       html=html + HTMLlink;
